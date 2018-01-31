@@ -1,6 +1,6 @@
 {
-  "name": "loginapp",
-  "version": "1.0.0",
+  "name": "Nodejstweetapp",
+  "version": "1.0.1",
   "description": "Tweet Bot with Authentication system",
   "main": "app.js",
   "scripts": {
