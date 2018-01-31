@@ -1,0 +1,58 @@
+ <h2 class="page-header">Tweet composing Form</h2>
+<p>Using below form, you can publish tweet to a specific twitter account with uploaded media file.</p>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+<form ref='uploadForm'
+      id='uploadForm'
+      action='/upload'
+      method='post'
+      encType="multipart/form-data">
+       <div class="form-group">
+          <label>Tweet Text (Max 140 characters)</label>
+       <textarea  required class="form-control" rows="4" maxlength="140" name="tweettext" cols="50"></textarea>
+       </div>
+         <div class="form-group">
+           <label>Upload Media (supported media types are jpg/png/gif/mp4)</label>
+        <input type="file" required class="form-control" id="sampleFile" name="sampleFile" accept=".jpg, .jpeg, .gif, .png, .mp4" onchange="setFileInfo(this.files)" />
+        *see media upload requirement in <a href="https://developer.twitter.com/en/docs/media/upload-media/uploading-media/media-best-practices" target="_blank">twitter site </a>
+       <input type='hidden' name="video_duration" value="0" id='video_duration' />
+        <input type='hidden' name="video_size" value="0" id='video_size' />
+        <input type='hidden' name="file_type" value="0" id='file_type' />
+        </div>
+         <input type='submit' class="btn btn-primary btn-lg" value='Publish!' />
+    </form>
+
+<script>
+var myVideos = [];
+window.URL = window.URL || window.webkitURL;
+function setFileInfo(files) {
+ //alert(files[0].size);
+  document.getElementById("video_size").value =files[0].size;
+   document.getElementById("file_type").value =files[0].type;
+     myVideos.push(files[0]);
+     var video = document.createElement('video');
+     video.preload = 'metadata';
+     video.onloadedmetadata = function() {
+         window.URL.revokeObjectURL(this.src)
+         var duration = video.duration;
+         var size = files[0].size;
+         myVideos[myVideos.length-1].duration = duration;
+         myVideos[myVideos.length-1].size = size;
+        updateInfos();
+    }
+    video.src = URL.createObjectURL(files[0]);
+
+}
+
+function updateInfos(){
+     // document.querySelector('#infos').innerHTML="";
+  for(i=0;i<myVideos.length;i++){
+
+      document.getElementById("video_duration").value = myVideos[i].duration;
+      //document.querySelector('#infos').innerHTML += "<div>"+myVideos[i].name+" duration: "+myVideos[i].duration+'</div>';
+     }
+  }
+  </script>

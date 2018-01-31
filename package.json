@@ -1,0 +1,37 @@
+{
+  "name": "loginapp",
+  "version": "1.0.0",
+  "description": "Tweet Bot with Authentication system",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bishwajit Halder",
+  "license": "lnu",
+  "dependencies": {
+    "async": "^2.6.0",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-busboy": "0.0.2",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "express": "*",
+    "express-fileupload": "^0.3.0",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "express-validators": "^1.0.4",
+    "file-type": "^7.5.0",
+    "get-video-duration": "^0.2.0",
+    "mongodb": "*",
+    "mongoose": "*",
+    "nodemailer": "^4.4.2",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "twit": "^2.2.9",
+    "validator": "^9.2.0"
+  }
+}

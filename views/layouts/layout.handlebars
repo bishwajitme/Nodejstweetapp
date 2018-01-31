@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NodejsTweetsApp</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto text-white font-weight-normal logo"><a href="/">NodejsTweetsApp</a></h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+
+         {{#if user}}
+               <a class="p-2 text-white" href="/">Dashboard</a>
+               <a class="p-2 text-white" href="/users/logout">Logout</a>
+          {{else}}
+                <a class="p-2 text-white" href="/users/login">Login</a>
+               <a class="p-2 text-white" href="/users/register">Register</a>
+          {{/if}}
+      </nav>
+
+    </div>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center col-lg-8">
+          <h1 class="display-4">Twitter Bot using Node.js </h1>
+          <p class="lead">From this Application, user can publish tweets with media when upload image/video using upload field. Tweets will publish in <a href="https://twitter.com/jamin14_ben" target="_blank">Elin Hermansson's Twitter</a> account. </p>
+        </div>
+
+	<div class="container">
+
+
+
+      <div class="row">
+        <div class="col-lg-12">
+          {{#if success_msg}}
+            <div class="alert alert-success">{{{success_msg}}}</div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+          {{/if}}
+          
+          {{{body}}}
+        </div>
+
+        
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2018 Media Technology Department, Linnaeus University. All Rights Reserved. </p>
+      </footer>
+
+    </div> <!-- /container -->
+    <script src="/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+</body>
+</html>
